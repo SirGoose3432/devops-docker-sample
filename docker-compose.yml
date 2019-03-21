@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  react-1:
+    image: react
+    ports:
+      - 3001:3000
+  react-2:
+    image: react
+    ports:
+      - 3002:3000
+  react-3:
+    image: react
+    ports:
+      - 3003:3000
+  react-4:
+    image: react
+    ports:
+      - 3004:3000
