@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import happyDoge from "./happyDoge.jpg";
+import sadDoge from "./sadDoge.jpg";
 import "./App.css";
 
 class App extends Component {
@@ -8,22 +9,10 @@ class App extends Component {
     this.state = {
       response: "",
       post: "",
-      responseToPost: ""
+      responseToPost: "",
+      responseStatus: 0
     };
   }
-
-  // componentDidMount() {
-  //   this.callApi()
-  //     .then(res => this.setState({ response: res.express }))
-  //     .catch(err => console.log(err));
-  // }
-
-  // callApi = async () => {
-  //   const response = await fetch("api/hello");
-  //   const body = await response.json();
-  //   if (response.status !== 200) throw Error(body.message);
-  //   return body;
-  // };
 
   handleSubmit = async e => {
     e.preventDefault();
@@ -37,20 +26,38 @@ class App extends Component {
 
     const body = await response.text();
 
-    this.setState({ responseToPost: body });
+    this.setState({ responseStatus: response.status });
     console.log(response);
+  };
+
+  renderDoge = () => {
+    if (this.state.responseStatus === 200 || this.state.responseStatus === 0) {
+      return <img src={happyDoge} className="doge" alt="img" />;
+    }
+    return <img src={sadDoge} className="doge" alt="img" />;
+  };
+
+  renderInfoMessage = () => {
+    if (this.state.responseStatus === 200) {
+      return "Hey you didn't break the server this time!";
+    } else if (this.state.responseStatus === 505) {
+      return "Whoops - You killed the server! 👻";
+    } else if (this.state.responseStatus === 500) {
+      return "The server is down. Did you restart the server?";
+    }
+    return "";
   };
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <span>Sample App</span>
-          <img src={logo} className="App-logo" alt="logo" />
+          <span>DevOps Sample App</span>
+          {this.renderDoge()}
           <div>
             <button onClick={this.handleSubmit}>Click me, I dare you</button>
           </div>
-          <div>{this.state.responseToPost}</div>
+          <div>{this.renderInfoMessage()}</div>
         </header>
       </div>
     );
