@@ -18,7 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "prod": "node server.js",
-    "dev": "flag=true node server.js",
+    "dev": "node server.js",
     "stable": "npm run prod",
     "feature": "npm run dev"
   },
