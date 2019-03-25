@@ -17,6 +17,7 @@ services:
     image: react
     ports:
       - 3004:3000
+<<<<<<< HEAD
   loadbalancer:
       build: ./load-balancer
       tty: true
@@ -27,3 +28,5 @@ services:
           - react-4
       ports:
           - '8080:8080'
+=======
+>>>>>>> dockerize

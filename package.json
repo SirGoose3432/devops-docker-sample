@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.3",
+    "client": "file:client",
     "express": "^4.16.4"
   },
   "devDependencies": {
@@ -11,8 +12,8 @@
   },
   "scripts": {
     "downloadDeps": "npm install --silent && cd client && npm install --silent",
-    "client": "cd client && yarn start",
-    "server": "nodemon server.js",
+    "client": "cd client && yarn start --disable-host-check",
+    "server": "nodemon server.js --disable-host-check",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
