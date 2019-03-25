@@ -17,3 +17,13 @@ services:
     image: react
     ports:
       - 3004:3000
+  loadbalancer:
+      build: ./load-balancer
+      tty: true
+      links:
+          - react-1
+          - react-2
+          - react-3
+          - react-4
+      ports:
+          - '8080:8080'
