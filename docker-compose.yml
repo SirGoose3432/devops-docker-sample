@@ -1,29 +1,19 @@
-version: '3.4'
+version: "3.4"
 
 services:
   react-1:
     image: react
     ports:
-      - 3001:3000
+      - 3001:5000
   react-2:
     image: react
     ports:
-      - 3002:3000
-  react-3:
-    image: react
-    ports:
-      - 3003:3000
-  react-4:
-    image: react
-    ports:
-      - 3004:3000
+      - 3002:5000
   loadbalancer:
-      build: ./load-balancer
-      tty: true
-      links:
-          - react-1
-          - react-2
-          - react-3
-          - react-4
-      ports:
-          - '8080:8080'
+    build: ./load-balancer
+    tty: true
+    links:
+      - react-1
+      - react-2
+    ports:
+      - "8080:8080"
