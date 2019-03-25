@@ -14,7 +14,7 @@
     "downloadDeps": "npm install --silent && cd client && npm install --silent",
     "client": "cd client && yarn start --disable-host-check",
     "server": "nodemon server.js --disable-host-check",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": "react-app"

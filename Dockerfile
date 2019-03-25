@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 COPY . .
 
 RUN npm install nodemon -g
-RUN npm install
-RUN npm install client
+RUN npm install --save
+RUN npm install client --save
 
 EXPOSE 3000
 
