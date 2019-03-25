@@ -7,7 +7,8 @@
     "express": "^4.16.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "concurrently": "^4.0.1"
@@ -15,8 +16,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "server": "node server.js",
-    "dev": "concurrently \"npm run server\""
+    "prod": "node server.js",
+    "dev": "flag=true node server.js",
+    "stable": "npm run prod",
+    "feature": "npm run dev"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -2,11 +2,11 @@ version: "3.4"
 
 services:
   react-1:
-    image: react
+    image: react-stable
     ports:
       - 3001:5000
   react-2:
-    image: react
+    image: react-feature
     ports:
       - 3002:5000
   loadbalancer:

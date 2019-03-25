@@ -15,7 +15,7 @@ app.post("/api/killme", (req, res) => {
   } else {
     res.status(505);
     res.send("Whoops - You killed the server :(");
-    process.exit(1);
+    //process.exit(1);
   }
 });
 
