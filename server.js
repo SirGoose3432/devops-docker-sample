@@ -8,7 +8,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/api/killme", (req, res) => {
-  console.log("Received a request", req);
   if (featureFlag) {
     res.status(505);
     res.send("Whoops - Server doggo is borked :(");
