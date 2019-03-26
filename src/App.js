@@ -39,9 +39,9 @@ class App extends Component {
 
   renderInfoMessage = () => {
     if (this.state.responseStatus === 200) {
-      return "Hey you didn't break the server this time!";
+      return "Your request hit a healthy instance! :)";
     } else if (this.state.responseStatus === 505) {
-      return "Whoops - You killed the server! 👻";
+      return "Your request hit a broken instance! 👻";
     } else if (this.state.responseStatus === 500) {
       return "The server is down. Did you restart the server?";
     }
@@ -55,7 +55,7 @@ class App extends Component {
           <span>DevOps Sample App</span>
           {this.renderDoge()}
           <div>
-            <button onClick={this.handleSubmit}>Click me, I dare you</button>
+            <button onClick={this.handleSubmit}>Click me for a fresh doge pic</button>
           </div>
           <div>{this.renderInfoMessage()}</div>
         </header>
